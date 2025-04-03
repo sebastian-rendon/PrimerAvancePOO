@@ -8,13 +8,20 @@ aunque útiles, no siempre se ajustan a las necesidades específicas de cada usu
 Muchas veces, estas aplicaciones no consideran factores individuales como la ubicación exacta,  
 las condiciones climáticas de interés o las alertas personalizadas, lo que limita su utilidad en la vida cotidiana.
 
-Este proyecto busca solucionar esa problemática mediante el desarrollo de una aplicación innovadora que brinde información meteorológica   
-en tiempo real, pronósticos detallados y alertas personalizadas, adaptándose a las preferencias y necesidades de cada usuario.
+## El modelo del mundo para la aplicación es:
+
+![Modelo del mundo de la aplicación Todo](assets/Modelo del mundo.jpg "Modelo del mundo")
+
+
+
+
+
+
 
 Este proyecto tiene como objetivo desarrollar una aplicación de clima personalizada que proporcione:
-- Información meteorológica en tiempo real.
-- Pronósticos detallados para los próximos días.
-- Alertas personalizadas según las preferencias del usuario.
+- `Información meteorológica en tiempo real.`
+- `Pronósticos detallados para los próximos días.`
+- `Alertas personalizadas según las preferencias del usuario.`
 
 ## Características de la Aplicación
 ### Interfaz Personalizada
@@ -32,6 +39,20 @@ Este proyecto tiene como objetivo desarrollar una aplicación de clima personali
 ### Alertas y Notificaciones
 - Alertas meteorológicas basadas en condiciones climáticas adversas.
 - Notificaciones personalizadas según las preferencias del usuario.
+
+## Tecnologías Utilizadas
+- **Lenguaje:** `Python` 🐍
+- **API:** `OpenWeather`
+- **Librerías:** `requests` Utilizada para hacer peticiones HTTP a sitios web o APIs
+
+## Repositorio de trabajo
+- `https://github.com/sebastian-rendon/PrimerAvancePOO.git`
+
+
+## Autores  🖋️️
+- Juan Manuel Moreno Muñoz
+- Kevin Stiven Aguirre Lopez
+- Sebastián Rendón Grisales
 
 
 
