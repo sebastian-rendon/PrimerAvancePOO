@@ -10,7 +10,7 @@ las condiciones climáticas de interés o las alertas personalizadas, lo que lim
 
 ## El modelo del mundo para la aplicación es:
 
-![Modelo del mundo de la aplicación Todo](assets/Modelo del mundo.jpg "Modelo del mundo")
+![Modelo del mundo de la aplicación Todo](assets/Modelo_del_mundo.jpg "Modelo del mundo")
 
 
 
