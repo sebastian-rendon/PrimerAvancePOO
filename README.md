@@ -43,7 +43,9 @@ Este proyecto tiene como objetivo desarrollar una aplicación de clima personali
 ## Tecnologías Utilizadas
 - **Lenguaje:** `Python` 🐍
 - **API:** `OpenWeather`
-- **Librerías:** `requests` Utilizada para hacer peticiones HTTP a sitios web o APIs
+- **Librerías:**  
+`requests` Utilizada para hacer peticiones HTTP a sitios web o APIs  
+`tkinter` Utilizada para crear interfaz grafica de usuario
 
 ## Repositorio de trabajo
 - `https://github.com/sebastian-rendon/PrimerAvancePOO.git`
