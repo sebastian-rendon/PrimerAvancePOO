@@ -76,6 +76,12 @@ class APIClima:
             )
         return None
 
+class Usuario:
+    def __init__(self, nombre: str, ubicacion: Ubicacion, preferencias: dict):
+        self.nombre = nombre
+        self.ubicacion = ubicacion
+        self.preferencias = preferencias
+
 
 
 
