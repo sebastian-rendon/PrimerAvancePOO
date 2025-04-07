@@ -50,3 +50,9 @@ class AplicacionClima:
         if not historial_texto.strip():
             historial_texto = "No hay historial aún."
         messagebox.showinfo("Historial", historial_texto)
+
+if __name__ == "__main__":
+    root = tk.Tk() #ventana principal de aplicacion
+    root.geometry("500x400")
+    app = AplicacionClima(root)
+    root.mainloop()
