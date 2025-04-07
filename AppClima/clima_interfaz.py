@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 from clima_operativo import Ubicacion, APIClima, Usuario, HistorialClima
 
 class AplicacionClima:
@@ -22,3 +23,24 @@ class AplicacionClima:
 
         self.texto_resultado = tk.Text(root, height=10, width=50)
         self.texto_resultado.pack()
+
+    def obtener_clima_usuario(self):
+        ciudad = self.entry_ciudad.get().strip()
+        pais = self.entry_pais.get().strip()
+
+        if not ciudad or not pais:
+            messagebox.showerror("Error", "Debe ingresar ciudad y país.")
+            return
+
+        ubicacion_usuario = Ubicacion(ciudad, pais)
+        usuario = Usuario("Usuario", ubicacion_usuario, {})
+
+        clima = APIClima.obtener_clima(ubicacion_usuario)
+        if clima:
+            resultado = f"Clima actual en {ciudad}:\n{clima.mostrar_info()}"
+            self.historial.agregar_registro(usuario, clima)
+        else:
+            resultado = "❌ No se pudo obtener la información del clima."
+
+        self.texto_resultado.delete(1.0, tk.END)
+        self.texto_resultado.insert(tk.END, resultado)
