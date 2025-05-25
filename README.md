@@ -8,13 +8,15 @@ aunque útiles, no siempre se ajustan a las necesidades específicas de cada usu
 Muchas veces, estas aplicaciones no consideran factores individuales como la ubicación exacta,  
 las condiciones climáticas de interés o las alertas personalizadas, lo que limita su utilidad en la vida cotidiana.
 
-## El modelo del mundo para la aplicación es:
+## Modelo del mundo primera entrega para la aplicación:
 
 ![Modelo del mundo de la aplicación Todo](assets/Modelo_del_mundo.jpg "Modelo del mundo")
 
+## Version 1 modelo del mundo entrega final para la aplicación:
+![Version 1 modelo del mundo final.png](assets/Version%201%20modelo%20del%20mundo%20final.png "1 Modelo del mundo")
 
-
-
+## Version final modelo del mundo entrega final para la aplicación:
+![Version_final_modelo_del_mundo.jpg](assets/Version_final_modelo_del_mundo.jpg "final Modelo del mundo")
 
 
 
