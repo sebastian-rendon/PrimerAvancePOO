@@ -112,5 +112,47 @@ class APIClima:
             )
         return None
 
+    @staticmethod
+    def obtener_pronostico(ubicacion: Ubicacion, unidad='metric', idioma='es'):
+        params = {
+            "q": f"{ubicacion.ciudad},{ubicacion.pais}",
+            "appid": APIClima.API_KEY,
+            "units": unidad,
+            "lang": idioma
+        }
+
+        try:
+            respuesta = requests.get(APIClima.API_FORECAST, params=params)
+            respuesta.raise_for_status()
+        except Exception as e:
+            print(f"Error al obtener pronóstico: {e}")
+            return []
+
+        datos = respuesta.json()
+        pronosticos = {}
+
+        for entrada in datos.get("list", []):
+            fecha = datetime.fromtimestamp(entrada["dt"]).strftime("%d-%m")
+            temp = entrada["main"]["temp"]
+            descripcion = entrada["weather"][0]["description"]
+
+            if fecha not in pronosticos:
+                pronosticos[fecha] = {
+                    "temps": [],
+                    "descripciones": []
+                }
+
+            pronosticos[fecha]["temps"].append(temp)
+            pronosticos[fecha]["descripciones"].append(descripcion)
+
+        resumen = []
+        for fecha, info in pronosticos.items():
+            temp_min = min(info["temps"])
+            temp_max = max(info["temps"])
+            descripcion = max(set(info["descripciones"]), key=info["descripciones"].count)
+            resumen.append(PronosticoDia(fecha, temp_min, temp_max, descripcion))
+
+        return resumen[:5]
+
 
 
