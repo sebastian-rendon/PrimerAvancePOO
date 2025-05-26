@@ -34,7 +34,18 @@ class Alerta:
             return f"{self.fecha}: {self.mensaje}"
         return self.mensaje
 
+class PreferenciasUsuario:
+    def __init__(self, unidad='metric', idioma='es'):
+        self.unidad = unidad              # 'metric' o 'imperial'
+        self.idioma = idioma              # 'es', 'en', etc.
+        self.alerta_lluvia = False        # True si quiere alerta de lluvia
+        self.temp_minima = None           # número (ej: 10.0) o None
 
+class Usuario:
+    def __init__(self, nombre: str, ubicacion: Ubicacion, preferencias: PreferenciasUsuario):
+        self.nombre = nombre
+        self.ubicacion = ubicacion
+        self.preferencias = preferencias
 
 
 
