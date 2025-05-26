@@ -47,5 +47,21 @@ class Usuario:
         self.ubicacion = ubicacion
         self.preferencias = preferencias
 
+class HistorialClima:
+    def __init__(self):
+        self.registros = []
+
+    def agregar_registro(self, usuario: Usuario, clima: Clima):
+        self.registros.append({
+            "usuario": usuario.nombre,
+            "ubicacion": usuario.ubicacion.ciudad,
+            "clima": clima.mostrar_info(),
+            "fecha": datetime.now().strftime("%d-%m-%Y %H:%M")
+        })
+
+    def mostrar_historial(self) -> str:
+        if not self.registros:
+            return "No hay historial aún."
+        return "\n".join([f"{r['fecha']} | {r['usuario']} | {r['ubicacion']} | {r['clima']}" for r in self.registros])
 
 
