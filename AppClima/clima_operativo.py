@@ -86,5 +86,31 @@ class APIClima:
 
         return APIClima.obtener_clima(ubicacion, unidad, idioma)
 
+    @staticmethod
+    def obtener_clima(ubicacion: Ubicacion, unidad='metric', idioma='es'):
+        params = {
+            "q": f"{ubicacion.ciudad},{ubicacion.pais}",
+            "appid": APIClima.API_KEY,
+            "units": unidad,
+            "lang": idioma
+        }
+
+        try:
+            respuesta = requests.get(APIClima.API_WEATHER, params=params)
+            respuesta.raise_for_status()
+        except Exception as e:
+            print(f"Error al obtener clima actual: {e}")
+            return None
+
+        if respuesta.status_code == 200:
+            datos = respuesta.json()
+            return Clima(
+                float(datos['main']['temp']),
+                int(datos['main']['humidity']),
+                float(datos['wind']['speed']),
+                datos['weather'][0]['description']
+            )
+        return None
+
 
 
