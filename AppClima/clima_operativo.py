@@ -69,3 +69,17 @@ class APIClima:
     API_FORECAST = "https://api.openweathermap.org/data/2.5/forecast"
     API_KEY = "f909f1e464e631a48eef67ec7f377e3c"
 
+    @staticmethod
+    def verificar_ciudad_en_pais(ciudad: str, pais: str) -> bool:
+        params = {
+            "q": f"{ciudad},{pais}",
+            "appid": APIClima.API_KEY
+        }
+        try:
+            respuesta = requests.get(APIClima.API_WEATHER, params=params)
+            return respuesta.status_code == 200
+        except:
+            return False
+
+
+
