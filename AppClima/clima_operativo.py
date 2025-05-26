@@ -64,4 +64,8 @@ class HistorialClima:
             return "No hay historial aún."
         return "\n".join([f"{r['fecha']} | {r['usuario']} | {r['ubicacion']} | {r['clima']}" for r in self.registros])
 
+class APIClima:
+    API_WEATHER = "https://api.openweathermap.org/data/2.5/weather"
+    API_FORECAST = "https://api.openweathermap.org/data/2.5/forecast"
+    API_KEY = "f909f1e464e631a48eef67ec7f377e3c"
 
