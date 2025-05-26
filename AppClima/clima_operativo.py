@@ -81,5 +81,10 @@ class APIClima:
         except:
             return False
 
+    @staticmethod
+    def consultar_clima_actual(ubicacion: Ubicacion, unidad='metric', idioma='es'):
+
+        return APIClima.obtener_clima(ubicacion, unidad, idioma)
+
 
 
