@@ -1,3 +1,6 @@
+import requests
+from datetime import datetime
+
 class Ubicacion:
     def __init__(self, ciudad: str, pais: str):
         self.ciudad = ciudad
