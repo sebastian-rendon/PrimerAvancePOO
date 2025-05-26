@@ -23,6 +23,17 @@ class PronosticoDia:
     def mostrar_info(self):
         return f"{self.fecha}: {self.descripcion} | Mín: {self.temp_min}°C - Máx: {self.temp_max}°C"
 
+class Alerta:
+    def __init__(self, tipo: str, mensaje: str, fecha: str = None):
+        self.tipo = tipo
+        self.mensaje = mensaje
+        self.fecha = fecha
+
+    def mostrar(self) -> str:
+        if self.fecha:
+            return f"{self.fecha}: {self.mensaje}"
+        return self.mensaje
+
 
 
 
