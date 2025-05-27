@@ -63,3 +63,33 @@ class AplicacionClima:
     def verificar_usuario(self, nombre: str) -> bool:
         return nombre in self.usuarios
 
+    def obtener_ubicacion_usuario(self, nombre: str):
+        if self.verificar_usuario(nombre):
+            return self.usuarios[nombre].ubicacion
+        return None
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
