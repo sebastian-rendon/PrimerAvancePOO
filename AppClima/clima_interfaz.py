@@ -185,8 +185,9 @@ class AplicacionClima:
         self.texto_resultado.delete(1.0, tk.END)
         self.texto_resultado.insert(tk.END, resultado)
 
-
-
+    def mostrar_historial(self):
+        historial_texto = self.historial.mostrar_historial()
+        messagebox.showinfo("Historial", historial_texto)
 
 
 
