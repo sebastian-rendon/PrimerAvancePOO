@@ -91,6 +91,16 @@ class AplicacionClima:
 
         return "\n".join([alerta.mostrar() for alerta in alertas])
 
+    def generar_alertas_pronostico(self, pronostico: list, preferencias) -> list:
+
+        alertas = []
+        for dia in pronostico:
+            if preferencias.temp_minima is not None and dia.temp_min < preferencias.temp_minima:
+                alertas.append(Alerta("temperatura", "⚠️ Frío previsto ese día.", dia.fecha))
+            if preferencias.alerta_lluvia and "lluvia" in dia.descripcion.lower():
+                alertas.append(Alerta("lluvia", "☔ Lluvia pronosticada.", dia.fecha))
+        return alertas
+
 
 
 
