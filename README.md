@@ -55,7 +55,6 @@ Este proyecto tiene como objetivo desarrollar una aplicación de clima personali
 
 ## Autores  🖋️️
 - Juan Manuel Moreno Muñoz
-- Kevin Stiven Aguirre Lopez
 - Sebastián Rendón Grisales
 
 
