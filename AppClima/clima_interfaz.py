@@ -51,3 +51,6 @@ class AplicacionClima:
         self.texto_resultado = tk.Text(frame_resultado, height=20, width=70)
         self.texto_resultado.pack()
 
+    def validar_ubicacion(self, ciudad: str, pais: str) -> bool:
+        return APIClima.verificar_ciudad_en_pais(ciudad, pais)
+
