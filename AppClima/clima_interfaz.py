@@ -189,7 +189,10 @@ class AplicacionClima:
         historial_texto = self.historial.mostrar_historial()
         messagebox.showinfo("Historial", historial_texto)
 
-
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = AplicacionClima(root)
+    root.mainloop()
 
 
 
