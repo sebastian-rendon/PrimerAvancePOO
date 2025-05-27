@@ -163,6 +163,28 @@ class AplicacionClima:
             self.texto_resultado.delete(1.0, tk.END)
             self.texto_resultado.insert(tk.END, resultado)
 
+    def mostrar_pronostico(self):
+        if not hasattr(self, 'usuario_actual'):
+            messagebox.showwarning("Usuario no definido", "Primero debes iniciar sesión o registrarte.")
+            return
+
+        pronostico = APIClima.obtener_pronostico(
+            self.usuario_actual.ubicacion,
+            self.usuario_actual.preferencias.unidad,
+            self.usuario_actual.preferencias.idioma
+        )
+
+        if pronostico:
+            preferencias = self.obtener_preferencias_usuario(self.usuario_actual.nombre)
+            alertas = self.generar_alertas_pronostico(pronostico, preferencias)
+            resultado = f"📅 Pronóstico para {self.usuario_actual.ubicacion.ciudad}:\n"
+            resultado += self.mostrar_pronostico_con_alertas(pronostico, alertas)
+        else:
+            resultado = "❌ No se pudo obtener el pronóstico."
+
+        self.texto_resultado.delete(1.0, tk.END)
+        self.texto_resultado.insert(tk.END, resultado)
+
 
 
 
