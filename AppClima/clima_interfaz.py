@@ -78,6 +78,14 @@ class AplicacionClima:
 
         return self.obtener_preferencias(nombre)
 
+    def evaluar_alertas(self, clima, preferencias) -> list:
+
+        alertas = []
+        if preferencias.temp_minima is not None and clima.temperatura < preferencias.temp_minima:
+            alertas.append(Alerta("temperatura", "⚠️ Temperatura baja. ¡Abrígate bien!"))
+        if preferencias.alerta_lluvia and "lluvia" in clima.descripcion.lower():
+            alertas.append(Alerta("lluvia", "☔ Alerta de lluvia. Lleva paraguas."))
+        return alertas
 
 
 
