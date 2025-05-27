@@ -139,6 +139,30 @@ class AplicacionClima:
         messagebox.showinfo("Bienvenido", f"¡Hola, {nombre}! Ahora puedes consultar el clima.")
         self.usuario_actual = usuario
 
+        def mostrar_clima_actual(self):
+            if not hasattr(self, 'usuario_actual'):
+                messagebox.showwarning("Usuario no definido", "Primero debes iniciar sesión o registrarte.")
+                return
+
+            clima = APIClima.consultar_clima_actual(
+                self.usuario_actual.ubicacion,
+                self.usuario_actual.preferencias.unidad,
+                self.usuario_actual.preferencias.idioma
+            )
+
+            if clima:
+                resultado = f"🌦️ Clima actual en {self.usuario_actual.ubicacion.ciudad}: {clima.mostrar_info()}"
+                self.historial.agregar_registro(self.usuario_actual, clima)
+
+                alertas = self.evaluar_alertas(clima, self.usuario_actual.preferencias)
+                if alertas:
+                    resultado += "\n\n" + self.mostrar_alertas(alertas)
+            else:
+                resultado = "❌ No se pudo obtener la información del clima."
+
+            self.texto_resultado.delete(1.0, tk.END)
+            self.texto_resultado.insert(tk.END, resultado)
+
 
 
 
