@@ -54,3 +54,5 @@ class AplicacionClima:
     def validar_ubicacion(self, ciudad: str, pais: str) -> bool:
         return APIClima.verificar_ciudad_en_pais(ciudad, pais)
 
+    def retornar_estado_validacion(self, estado: bool) -> str:
+        return "Ubicación válida" if estado else "Ubicación no válida"
