@@ -56,3 +56,7 @@ class AplicacionClima:
 
     def retornar_estado_validacion(self, estado: bool) -> str:
         return "Ubicación válida" if estado else "Ubicación no válida"
+
+    def mostrar_resultado_validacion(self, mensaje: str):
+        messagebox.showinfo("Resultado validación", mensaje)
+
