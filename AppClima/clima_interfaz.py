@@ -110,6 +110,35 @@ class AplicacionClima:
                 resultado += alerta.mostrar() + "\n"
         return resultado
 
+    def registrar_usuario(self):
+        nombre = self.entry_nombre.get().strip()
+        ciudad = self.entry_ciudad.get().strip()
+        pais = self.entry_pais.get().strip()
+        temp_min = self.entry_temp_min.get().strip()
+
+        if not nombre or not ciudad or not pais:
+            messagebox.showwarning("Campos incompletos", "Por favor completa todos los campos.")
+            return
+
+        if not self.validar_ubicacion(ciudad, pais):
+            self.mostrar_resultado_validacion(self.retornar_estado_validacion(False))
+            return
+
+        preferencias = PreferenciasUsuario()
+        preferencias.alerta_lluvia = self.alerta_lluvia.get()
+        try:
+            preferencias.temp_minima = float(temp_min) if temp_min else None
+        except ValueError:
+            messagebox.showerror("Entrada inválida", "El valor de temperatura mínima debe ser numérico.")
+            return
+
+        ubicacion = Ubicacion(ciudad, pais)
+        usuario = Usuario(nombre, ubicacion, preferencias)
+        self.usuarios[nombre] = usuario
+
+        messagebox.showinfo("Bienvenido", f"¡Hola, {nombre}! Ahora puedes consultar el clima.")
+        self.usuario_actual = usuario
+
 
 
 
