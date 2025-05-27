@@ -101,6 +101,14 @@ class AplicacionClima:
                 alertas.append(Alerta("lluvia", "☔ Lluvia pronosticada.", dia.fecha))
         return alertas
 
+    def mostrar_pronostico_con_alertas(self, pronostico: list, alertas: list) -> str:
+
+        resultado = ""
+        for dia in pronostico:
+            resultado += dia.mostrar_info() + "\n"
+            for alerta in [a for a in alertas if a.fecha == dia.fecha]:
+                resultado += alerta.mostrar() + "\n"
+        return resultado
 
 
 
