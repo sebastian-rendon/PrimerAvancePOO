@@ -60,3 +60,6 @@ class AplicacionClima:
     def mostrar_resultado_validacion(self, mensaje: str):
         messagebox.showinfo("Resultado validación", mensaje)
 
+    def verificar_usuario(self, nombre: str) -> bool:
+        return nombre in self.usuarios
+
