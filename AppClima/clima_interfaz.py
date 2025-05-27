@@ -87,6 +87,10 @@ class AplicacionClima:
             alertas.append(Alerta("lluvia", "☔ Alerta de lluvia. Lleva paraguas."))
         return alertas
 
+    def mostrar_alertas(self, alertas: list) -> str:
+
+        return "\n".join([alerta.mostrar() for alerta in alertas])
+
 
 
 
