@@ -68,7 +68,11 @@ class AplicacionClima:
             return self.usuarios[nombre].ubicacion
         return None
 
+    def obtener_preferencias(self, nombre: str):
 
+        if self.verificar_usuario(nombre):
+            return self.usuarios[nombre].preferencias
+        return None
 
 
 
