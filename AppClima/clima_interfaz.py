@@ -139,10 +139,10 @@ class AplicacionClima:
         messagebox.showinfo("Bienvenido", f"¡Hola, {nombre}! Ahora puedes consultar el clima.")
         self.usuario_actual = usuario
 
-        def mostrar_clima_actual(self):
-            if not hasattr(self, 'usuario_actual'):
-                messagebox.showwarning("Usuario no definido", "Primero debes iniciar sesión o registrarte.")
-                return
+    def mostrar_clima_actual(self):
+        if not hasattr(self, 'usuario_actual'):
+            messagebox.showwarning("Usuario no definido", "Primero debes iniciar sesión o registrarte.")
+            return
 
             clima = APIClima.consultar_clima_actual(
                 self.usuario_actual.ubicacion,
